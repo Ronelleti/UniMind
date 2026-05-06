@@ -190,3 +190,23 @@ Validates:
 ## Production
 - values-prod.yaml
 - namespace: unimind-prod
+
+# Deploy UniMind Helm Environment
+
+## Development
+
+```bash
+./scripts/deploy-helm.sh dev
+```
+
+## Staging
+
+```bash
+./scripts/deploy-helm.sh staging
+```
+
+## Production
+
+```bash
+./scripts/deploy-helm.sh prod
+```
