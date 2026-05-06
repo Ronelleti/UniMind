@@ -165,3 +165,28 @@ Example:
 Ensure:
 - VM network adapter uses Bridged mode
 - firewall allows required ports
+
+# Helm Chart Validation
+
+Validates:
+- Helm syntax
+- environment values
+- rendered templates
+
+```bash
+./scripts/test-helm.sh
+```
+
+# Helm Environments
+
+## Development
+- values-dev.yaml
+- namespace: unimind-dev
+
+## Staging
+- values-staging.yaml
+- namespace: unimind-staging
+
+## Production
+- values-prod.yaml
+- namespace: unimind-prod

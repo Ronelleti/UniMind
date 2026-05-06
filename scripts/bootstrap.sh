@@ -22,6 +22,8 @@ echo "=================================="
 
 ./scripts/verify-cluster.sh
 
+./scripts/test-helm.sh
+
 echo ""
 echo "=================================="
 echo " UniMind Bootstrap Complete"

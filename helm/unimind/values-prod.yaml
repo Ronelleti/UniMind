@@ -1,0 +1,8 @@
+frontend:
+  replicas: 3
+
+backend:
+  replicas: 3
+
+ingress:
+  host: unimind.local

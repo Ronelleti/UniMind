@@ -1,0 +1,30 @@
+frontend:
+  enabled: true
+  replicas: 1
+
+  image:
+    repository: ronn4/unimind-frontend
+    tag: latest
+    pullPolicy: Always
+
+  service:
+    port: 80
+
+backend:
+  enabled: true
+  replicas: 1
+
+  image:
+    repository: ronn4/unimind-backend
+    tag: latest
+    pullPolicy: Always
+
+  service:
+    port: 8080
+
+ingress:
+  enabled: true
+
+  className: nginx
+
+  host: unimind.local

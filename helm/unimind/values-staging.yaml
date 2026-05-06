@@ -1,0 +1,8 @@
+frontend:
+  replicas: 2
+
+backend:
+  replicas: 2
+
+ingress:
+  host: staging.unimind.local
