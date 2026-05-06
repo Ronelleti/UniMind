@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: unimind-prod
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:Ronelleti/UniMind.git
+
+    targetRevision: main
+
+    path: helm/unimind
+
+    helm:
+      valueFiles:
+        - values-prod.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+
+    namespace: unimind-prod
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true

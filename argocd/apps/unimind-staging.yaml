@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: unimind-staging
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:Ronelleti/UniMind.git
+
+    targetRevision: staging
+
+    path: helm/unimind
+
+    helm:
+      valueFiles:
+        - values-staging.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+
+    namespace: unimind-staging
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
