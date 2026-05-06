@@ -1,76 +1,4 @@
-# UniMind
-
-AI-powered university workspace platform built with modern DevOps infrastructure.
-
----
-
-# Features
-
-- AI study summaries
-- AI quiz generator
-- Flashcards
-- Assignment tracking
-- Multi-environment Kubernetes deployment
-- GitOps with ArgoCD
-- CI/CD with GitHub Actions
-- Terraform infrastructure
-- Helm deployments
-- PostgreSQL with automated backups
-- Secure Kubernetes architecture
-
----
-
-# Infrastructure Stack
-
-## Application
-- React
-- Spring Boot
-- PostgreSQL
-- Ollama AI
-
-## DevOps
-- Docker
-- Kubernetes
-- Minikube
-- Helm
-- Terraform
-- ArgoCD
-- GitHub Actions
-
-## Monitoring
-- Prometheus
-- Grafana
-- Loki
-
----
-
-# Environments
-
-- unimind-dev
-- unimind-staging
-- unimind-prod
-
----
-
-# Project Structure
-
-```text
-UniMind/
-│
-├── frontend/
-├── backend/
-├── ai-service/
-├── terraform/
-├── helm/
-├── argocd/
-├── scripts/
-├── monitoring/
-└── docs/
-```
-
----
-
-# Bootstrap Setup
+# Setup UniMind Infrastructure
 
 ## Clone Repository
 
@@ -81,16 +9,63 @@ cd UniMind
 
 ---
 
-# Run Infrastructure Bootstrap
+# Give Execute Permissions
 
 ```bash
 chmod +x scripts/*.sh
-./scripts/bootstrap.sh
 ```
 
 ---
 
-# Verify Cluster
+# Install Development Tools
+
+Installs:
+- Docker
+- kubectl
+- Minikube
+- Helm
+- Terraform
+- Git
+- jq
+
+```bash
+./scripts/install-tools.sh
+```
+
+IMPORTANT:
+After installation finishes, reboot the VM.
+
+```bash
+sudo reboot
+```
+
+---
+
+# Install SSH Server
+
+```bash
+./scripts/install-ssh.sh
+```
+
+---
+
+# Start Kubernetes Cluster
+
+```bash
+./scripts/start-minikube.sh
+```
+
+---
+
+# Create Infrastructure Namespaces
+
+```bash
+./scripts/create-namespaces.sh
+```
+
+---
+
+# Verify Cluster Infrastructure
 
 ```bash
 ./scripts/verify-cluster.sh
@@ -98,51 +73,20 @@ chmod +x scripts/*.sh
 
 ---
 
-# Kubernetes Namespaces
+# Full Automated Bootstrap
 
-```text
-argocd
-monitoring
-database
-ai-services
-unimind-dev
-unimind-staging
-unimind-prod
+Run entire infrastructure setup automatically:
+
+```bash
+./scripts/bootstrap.sh
 ```
 
 ---
 
-# Security Features
+# Cleanup Environment
 
-- Non-root containers
-- Namespace isolation
-- Kubernetes Secrets
-- RBAC
-- NetworkPolicies
-- Automated backups
-- Container scanning
+Stops and deletes Minikube cluster.
 
----
-
-# PostgreSQL Backups
-
-Daily automated PostgreSQL backups using Kubernetes CronJobs.
-
-Retention:
-- keep last 7 backups
-
----
-
-# Future Features
-
-- AI tutor
-- RAG AI system
-- Mobile app
-- Realtime collaboration
-- Notifications
-- Autoscaling
-- Full observability stack
-
----
-
-
+```bash
+./scripts/cleanup.sh
+```
