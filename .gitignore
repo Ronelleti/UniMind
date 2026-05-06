@@ -1,0 +1,31 @@
+# Binaries
+minikube-linux-*
+kubectl
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Kubernetes
+kubeconfig
+*.pem
+*.key
+
+# Logs
+*.log
+
+# Backup files
+backups/
+*.sql
+*.gz
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
