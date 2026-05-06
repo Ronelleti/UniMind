@@ -119,3 +119,49 @@ Creates a manual backup job for testing.
 ```bash
 ./scripts/test-postgres-backup.sh
 ```
+
+# Install PostgreSQL Backup System
+
+```bash
+./scripts/install-postgres-backups.sh
+```
+
+---
+
+# Test PostgreSQL Backup System
+
+```bash
+./scripts/test-postgres-backup.sh
+```
+
+---
+
+# Install ArgoCD
+
+```bash
+./scripts/install-argocd.sh
+```
+
+---
+
+# Open ArgoCD
+
+```bash
+./scripts/open-argocd.sh
+```
+
+The script automatically prints:
+- username
+- password
+- VM URL
+
+# Accessing UniMind Services From Host Machine
+
+Some services are exposed using Kubernetes port-forwarding.
+
+Example:
+- ArgoCD → https://VM_IP:8081
+
+Ensure:
+- VM network adapter uses Bridged mode
+- firewall allows required ports

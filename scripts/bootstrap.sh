@@ -7,11 +7,20 @@ echo " UniMind Bootstrap Starting"
 echo "=================================="
 
 ./scripts/install-tools.sh
+
 ./scripts/install-ssh.sh
+
 ./scripts/start-minikube.sh
+
 ./scripts/create-namespaces.sh
-./scripts/verify-cluster.sh
+
 ./scripts/install-postgres.sh
+
+./scripts/install-postgres-backups.sh
+
+./scripts/install-argocd.sh
+
+./scripts/verify-cluster.sh
 
 echo ""
 echo "=================================="
