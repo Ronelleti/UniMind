@@ -90,3 +90,24 @@ Stops and deletes Minikube cluster.
 ```bash
 ./scripts/cleanup.sh
 ```
+
+# Install PostgreSQL
+
+Installs:
+- PostgreSQL
+- Persistent Volume Claim
+- Kubernetes Secret
+- PostgreSQL Service
+
+```bash
+./scripts/install-postgres.sh
+```
+
+## Database Features
+
+- PostgreSQL
+- Persistent storage
+- Namespace isolation
+- Kubernetes Secrets
+- Resource limits
+- Health probes

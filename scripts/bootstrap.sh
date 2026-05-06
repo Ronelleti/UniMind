@@ -11,6 +11,7 @@ echo "=================================="
 ./scripts/start-minikube.sh
 ./scripts/create-namespaces.sh
 ./scripts/verify-cluster.sh
+./scripts/install-postgres.sh
 
 echo ""
 echo "=================================="
