@@ -9,7 +9,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@github.com:Ronelleti/UniMind.git
+    repoURL: https://github.com/Ronelleti/UniMind.git
 
     targetRevision: main
 

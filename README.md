@@ -210,3 +210,14 @@ Validates:
 ```bash
 ./scripts/deploy-helm.sh prod
 ```
+
+# Install ArgoCD Applications
+
+```bash
+./scripts/install-argocd-apps.sh
+```
+
+Applications:
+- unimind-dev
+- unimind-staging
+- unimind-prod
