@@ -1,0 +1,59 @@
+apiVersion: batch/v1
+kind: CronJob
+
+metadata:
+  name: postgres-backup
+  namespace: database
+
+spec:
+  schedule: "0 0 * * *"
+
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+
+          containers:
+            - name: postgres-backup
+
+              image: postgres:16-alpine
+
+              env:
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgres-secret
+                      key: POSTGRES_PASSWORD
+
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  mkdir -p /backups
+
+                  FILE=/backups/unimind-$(date +%Y-%m-%d-%H-%M).sql
+
+                  pg_dump \
+                    -h postgres \
+                    -U unimind \
+                    -d unimind \
+                    > $FILE
+
+                  gzip $FILE
+
+                  find /backups -name "*.gz" -mtime +7 -delete
+
+                  echo "Backup completed"
+
+              volumeMounts:
+                - name: backup-storage
+                  mountPath: /backups
+
+          volumes:
+            - name: backup-storage
+              persistentVolumeClaim:
+                claimName: postgres-backup-pvc

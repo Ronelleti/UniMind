@@ -111,3 +111,11 @@ Installs:
 - Kubernetes Secrets
 - Resource limits
 - Health probes
+
+# Test PostgreSQL Backup System
+
+Creates a manual backup job for testing.
+
+```bash
+./scripts/test-postgres-backup.sh
+```
